@@ -1,13 +1,28 @@
-let now = new Date();
+const DAYS_ELEM = document.querySelector(`[data-time="days"]`)
+const HOURS_ELEM = document.querySelector(`[data-time="hours"]`)
+const MINUTES_ELEM = document.querySelector(`[data-time="minutes"]`)
+const SECONDS_ELEM = document.querySelector(`[data-time="seconds"]`)
 
-const diff_time = new Date(new Date().setDate(new Date().getDate() + 14));
+const timeDiff = new Date();
 
-const increment_now  = () => {
-    now = new Date()
-    console.log(now)
-    console.log(((diff_time - now) / 86400))
-}
+timeDiff.setDate(timeDiff.getDate() + 14);
 
-setInterval(increment_now,1000)
+console.log(timeDiff)
 
-console.log(now)
+let x = setInterval(() => {
+    let now = new Date().getTime();
+
+    let distance = timeDiff - now;
+
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    DAYS_ELEM.querySelector("h2").textContent = days
+    HOURS_ELEM.querySelector("h2").textContent =hours
+    MINUTES_ELEM.querySelector("h2").textContent = minutes
+    SECONDS_ELEM.querySelector("h2").textContent = seconds
+    console.log(seconds)
+
+},1000)

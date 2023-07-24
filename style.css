@@ -4,6 +4,28 @@
     box-sizing: border-box;
 }
 
+
+:root {
+    --bg-color: rgba(33, 29, 43, 255);
+
+    --primary-500: hsl(237, 18%, 59%);
+    --primary-700: hsl(345, 95%, 68%);
+
+
+    --neutral-100: hsl(235, 16%, 14%);
+    --neutral-200: hsl(234, 17%, 12%);
+    --neutral-400: hsl(236, 21%, 26%);
+    --neutral-900: hsl(0, 0%, 100%);
+
+    --ff-default: ;
+    
+    --fs-title: 2rem;
+    --fs-number: 5rem;
+    --fs-time-type: 1.25rem
+
+    --fw-default: 700;
+}
+
 /* Remove default margin */
 * {
     margin: 0;
@@ -61,4 +83,94 @@ svg {
 body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    background-image: url("./images/bg-stars.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--bg-color);
+    font-size: 14px;
+    font-family: 'Rubik',sans-serif;
+    font-weight: var(--fw-default);
 }
+
+main {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 1fr auto;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    background-image: url("./images/pattern-hills.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5rem;
+}
+
+h1 {
+    color: var(--neutral-900);
+    font-size: var(--fs-title);
+    font-family: var(--ff-default);
+    letter-spacing: .3rem;
+    text-transform: uppercase;
+}
+
+.time-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-700);
+    font-size: var(--fs-number);
+    background-color: var(--neutral-400);
+    padding: 2rem;
+}
+
+.time-cards {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2.5rem
+}
+
+h3 {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--primary-500);
+    font-size: var(--fs-time-type);
+    letter-spacing: .4rem;
+    text-transform: uppercase;
+
+}
+
+.social-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style-type: none;
+}
+
+
+
+footer img:hover {
+    cursor: pointer;
+    background: var(--primary-700);
+}
+
+@media screen and (max-width:40em) {
+    body {
+        display: grid;
+        place-content: center;
+        min-height: ;
+    }
+}
+

@@ -5,18 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   
   <title>FEM Countdown timer</title>
+
+
+  <!-- Custom font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
 <body>
 
-  We're launching soon
+  <main>
+    <div class="container">
+      <h1>We're launching soon</h1>
+      <div class="time-cards">
+        <div class="card-wrapper">
+          <div class="time-card" data-time="days">
+            <h2></h2>
+          </div>
+          <h3>Days</h3>
+        </div>
+        <div class="card-wrapper">
+          <div class="time-card" data-time="hours">
+            <h2>23</h2>
+          </div>
+          <h3>Hours</h3>
+        </div>
+        <div class="card-wrapper">
+          <div class="time-card" data-time="minutes">
+            <h2>55</h2>
+          </div>
+          <h3>Minutes</h3>
+        </div>
+        <div class="card-wrapper">
+          <div class="time-card" data-time="seconds">
+            <h2>41</h2>
+          </div>
+          <h3>Seconds</h3>
+        </div>
+      </div>
 
-  Days
-  Hours
-  Minutes
-  Seconds
+
+    </div>
+    <div class="footer">
+      <ul class="social-links">
+        <li class="social-item"><img src="./images/icon-facebook.svg"></li>
+        <li class="social-item"><img src="./images/icon-pinterest.svg"></li>
+        <li class="social-item"><img src="./images/icon-instagram.svg"></li>
+      </ul>
+    </div>
+  </main>
+
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
