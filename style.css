@@ -8,6 +8,9 @@
 :root {
     --bg-color: rgba(33, 29, 43, 255);
 
+    --card-top: rgba(41, 45, 68, 255);
+    --card-bottom: rgba(53, 52, 79, 255);
+
     --primary-500: hsl(237, 18%, 59%);
     --primary-700: hsl(345, 95%, 68%);
 
@@ -95,7 +98,7 @@ body {
 
 main {
 
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,6 +115,9 @@ main {
 
 .footer {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     bottom: 0;
     background-image: url("./images/pattern-hills.svg");
     background-repeat: no-repeat;
@@ -123,10 +129,13 @@ h1 {
     color: var(--neutral-900);
     font-size: var(--fs-title);
     font-family: var(--ff-default);
-    letter-spacing: .3rem;
+    letter-spacing: .5rem;
     text-transform: uppercase;
+    text-align: center;
 }
 
+
+/*
 .time-card {
     display: flex;
     justify-content: center;
@@ -143,6 +152,154 @@ h1 {
     gap: 2.5rem
 }
 
+*/
+
+.flip-clock {
+    text-align: center;
+    perspective: 400px;
+    margin: 20px auto;
+    display: flex;
+    gap: 2em;
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+}
+
+.flip-clock__piece {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+
+.flip-clock__slot {
+    font-size: 2vw;
+    color: var(--primary-500);
+    text-align: center;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+}
+
+
+
+.card {
+    display: block;
+    position: relative;
+    padding-bottom: 0.72em;
+    font-size: 9vw;
+    line-height: 0.95;
+}
+
+.card__top,
+.card__bottom,
+.card__back::before,
+.card__back::after {
+    display: block;
+    height: 0.72em;
+    color: var(--primary-700);
+    background: #222;
+    padding: 0.25em 0.25em;
+    border-radius: 0.1em 0.1em 0 0;
+    transform-style: preserve-3d;
+    width: 1.8em;
+    transform: translateZ(0);
+}
+
+.card__top {
+    background-color: var(--card-top);
+    border-radius: 0.05em 0.05em 0.1em 0.1em;
+}
+
+
+.card__bottom {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-top: solid 1px #000;
+    background: var(--card-bottom);
+    border-radius: 0.1em 0.1em 0.05em 0.05em;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.card__bottom::after {
+    display: block;
+    margin-top: -0.72em;
+}
+
+.card__back::before,
+.card__bottom::after {
+    content: attr(data-value);
+}
+
+.card__back {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0%;
+    pointer-events: none;
+}
+
+.card__back::before {
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.flip .card__back::before {
+    animation: flipTop 0.3s cubic-bezier(.37, .01, .94, .35);
+    animation-fill-mode: both;
+    transform-origin: center bottom;
+}
+
+.flip .card__back .card__bottom {
+    transform-origin: center top;
+    animation-fill-mode: both;
+    animation: flipBottom 0.6s cubic-bezier(.15, .45, .28, 1); 
+}
+
+@keyframes flipTop {
+    0% {
+        transform: rotateX(0deg);
+        z-index: 2;
+    }
+
+    0%,
+    99% {
+        opacity: 0.99;
+    }
+
+    100% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes flipBottom {
+
+    0%,
+    50% {
+        z-index: -1;
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+
+    51% {
+        opacity: 0.99;
+    }
+
+    100% {
+        opacity: 0.99;
+        transform: rotateX(0deg);
+        z-index: 5;
+    }
+}
+
 h3 {
     text-align: center;
     margin-top: 1.5rem;
@@ -155,8 +312,7 @@ h3 {
 
 .social-links{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 2em;
     gap: 2rem;
     list-style-type: none;
 }
