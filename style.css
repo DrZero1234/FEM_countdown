@@ -103,7 +103,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5em;
+    gap: 7.5em;
+    padding: 2em
 
 }
 
@@ -132,6 +133,7 @@ h1 {
     letter-spacing: .5rem;
     text-transform: uppercase;
     text-align: center;
+    margin-top: 1em;
 }
 
 
@@ -157,9 +159,9 @@ h1 {
 .flip-clock {
     text-align: center;
     perspective: 400px;
-    margin: 20px auto;
-    display: flex;
-    gap: 2em;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.5em;
 
     *,
     *:before,
@@ -178,11 +180,12 @@ h1 {
 
 
 .flip-clock__slot {
-    font-size: 2vw;
+    font-size: 1.5rem;
     color: var(--primary-500);
     text-align: center;
     letter-spacing: .35em;
     text-transform: uppercase;
+    font-weight: 100;
 }
 
 
@@ -190,9 +193,10 @@ h1 {
 .card {
     display: block;
     position: relative;
-    padding-bottom: 0.72em;
-    font-size: 9vw;
+    padding-bottom: 1em;
+    font-size: 4rem;
     line-height: 0.95;
+    font-weight: 500;
 }
 
 .card__top,
@@ -200,13 +204,13 @@ h1 {
 .card__back::before,
 .card__back::after {
     display: block;
-    height: 0.72em;
+    height: 1em;
     color: var(--primary-700);
     background: #222;
-    padding: 0.25em 0.25em;
+    padding: 0.5em 0.5em;
     border-radius: 0.1em 0.1em 0 0;
     transform-style: preserve-3d;
-    width: 1.8em;
+    width: 2.5em;
     transform: translateZ(0);
 }
 
@@ -229,7 +233,7 @@ h1 {
 
 .card__bottom::after {
     display: block;
-    margin-top: -0.72em;
+    margin-top: -1em;
 }
 
 .card__back::before,
@@ -318,17 +322,13 @@ h3 {
 }
 
 
-
-footer img:hover {
-    cursor: pointer;
-    background: var(--primary-700);
+.social-icon {
+    fill: #8385A9;
 }
 
-@media screen and (max-width:40em) {
-    body {
-        display: grid;
-        place-content: center;
-        min-height: 100vh;
-    }
+.social-icon:hover {
+    fill: #DA4567;
 }
+
+
 
